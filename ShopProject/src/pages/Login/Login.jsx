@@ -101,7 +101,7 @@ const Login = () => {
                       <IconButton
                         onClick={() => setShowPassword(!showPassword)}
                         edge='end'
-                        sx={{ color: "green" }}
+                        sx={{ color: "green", backgroundColor: "#D3D3D3" }}
                       >
                         {showPassword ? <VisibilityOff /> : <Visibility />}
                       </IconButton>

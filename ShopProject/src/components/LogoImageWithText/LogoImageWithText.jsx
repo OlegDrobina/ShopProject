@@ -15,7 +15,7 @@ const LogoImageWithText = (props) => {
         paddingBottom: { paddingBottom },
       }}
     >
-      <img src={rozetkaLogo} style={{ width: "40px", height: "40px" }} />
+      <img src={rozetkaLogo} style={{ width: "50px", height: "40px" }} />
       <Typography variant='h4' sx={{ fontWeight: "bold", color: { color } }}>
         ROZETKA
       </Typography>
