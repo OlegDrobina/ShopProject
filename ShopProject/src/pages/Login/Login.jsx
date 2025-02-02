@@ -35,7 +35,7 @@ const Login = () => {
       <Box sx={{ mt: 8, textAlign: "center" }}>
         <LogoImageWithText
           color='green'
-          paddingLeft='90px'
+          paddingLeft='80px'
           paddingTop='70px'
           paddingBottom='50px'
         />
@@ -111,7 +111,7 @@ const Login = () => {
                       <IconButton
                         onClick={() => setShowPassword(!showPassword)}
                         edge='end'
-                        sx={{ color: "green", backgroundColor: "#D3D3D3" }}
+                        sx={{ color: "green" }}
                       >
                         {showPassword ? <VisibilityOff /> : <Visibility />}
                       </IconButton>
