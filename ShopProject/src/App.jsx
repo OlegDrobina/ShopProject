@@ -7,8 +7,9 @@ import ProductsList from "./pages/ProductsList/ProductsList";
 import Login from "./pages/Login/Login";
 
 const PrivateRoute = ({ children }) => {
-  const isAuthenticated = useSelector((state) => state.auth.isAuthenticated);
-  return isAuthenticated ? children : <Navigate to='/' />;
+  console.log("private route triggered");
+  const isAuthTokenValid = useSelector((state) => state.auth.isAuthTokenValid);
+  return isAuthTokenValid ? children : <Navigate to='/' />;
 };
 
 const App = () => {

@@ -1,6 +1,5 @@
 const selector = {
-  isAuthenticated: (state) => state.isAuthenticated,
-  userName: (state) => state.userName,
+  isTokenValid: (state) => state.isTokenValid,
 };
 
 export default selector;

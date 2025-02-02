@@ -1,6 +1,7 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { performLogin } from "../../redux/authentication/authSlice";
+import { checkAuthData } from "../../redux/authentication/authSlice";
 import LogoImageWithText from "../../components/LogoImageWithText/LogoImageWithText";
 import {
   TextField,
@@ -16,6 +17,15 @@ import { Formik, Form } from "formik";
 const Login = () => {
   const [showPassword, setShowPassword] = useState(false);
   const dispatch = useDispatch();
+
+  useEffect(() => {
+    checkAuthToken();
+  }, []);
+
+  const checkAuthToken = () => {
+    const authToken = localStorage.getItem("authToken");
+    dispatch(checkAuthData(authToken));
+  };
 
   return (
     <Container
