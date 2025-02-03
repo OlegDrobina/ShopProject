@@ -1,4 +1,6 @@
 import { useState } from "react";
+import { useDispatch } from "react-redux";
+import productAsyncActions from "../../redux/products/saga/asyncAction";
 import { Button } from "@mui/material";
 import AddIcon from "@mui/icons-material/Add";
 import CloseIcon from "@mui/icons-material/Close";
@@ -25,6 +27,7 @@ const style = {
 };
 
 const AddProductButton = () => {
+  const dispatch = useDispatch();
   const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
@@ -78,7 +81,7 @@ const AddProductButton = () => {
               if (!values.name) {
                 errors.name = "Product name is required";
               }
-              if (values.price && !values.price.match("[0-9]+.[0-9]+")) {
+              if (values.price && !values.price.match("[0-9]+\\.[0-9]+")) {
                 errors.price = "Price should be decimal";
               }
               if (values.quantity && !values.quantity.match("[0-9]+")) {
@@ -90,7 +93,7 @@ const AddProductButton = () => {
               return errors;
             }}
             onSubmit={(values, { resetForm }) => {
-              console.log("Form Submitted:", values);
+              dispatch(productAsyncActions.createProductAction(values));
               resetForm();
               handleClose();
             }}

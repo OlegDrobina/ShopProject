@@ -3,7 +3,7 @@ import { HistoryRouter as Router } from "redux-first-history/rr6";
 import { history, store } from "./redux/store";
 import ErrorBoundary from "./components/ErrorBoundary/ErrorBoundary";
 import { Provider, useSelector } from "react-redux";
-import ProductsList from "./pages/ProductsList/ProductsList";
+import Products from "./pages/Products/Products";
 import Login from "./pages/Login/Login";
 
 const PrivateRoute = ({ children }) => {
@@ -23,7 +23,7 @@ const App = () => {
               path='/products'
               element={
                 <PrivateRoute>
-                  <ProductsList />
+                  <Products />
                 </PrivateRoute>
               }
             />

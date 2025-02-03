@@ -1,8 +1,9 @@
-import { Box, List } from "@mui/material";
+import { Box } from "@mui/material";
 import LogoImageWithText from "../../components/LogoImageWithText/LogoImageWithText";
 import AddProductButton from "../../components/AddProductButton/AddProductButton";
 import ProductsPreviewButton from "../../components/ProductsPreviewButton/ProductsPreviewButton";
-const ProductsList = () => {
+import ProductsList from "../../components/ProductsList/ProductsList";
+const Products = () => {
   return (
     <>
       <Box>
@@ -14,18 +15,15 @@ const ProductsList = () => {
       </Box>
       <Box
         sx={{
-          display: "flex",
           bgcolor: "background.paper",
-          mt: "15px",
-          alignItems: "center",
-          justifyContent: "center",
-          mx: 10,
+          mt: 0,
+          mx: 38,
         }}
       >
-        <List></List>
+        <ProductsList />
       </Box>
     </>
   );
 };
 
-export default ProductsList;
+export default Products;
