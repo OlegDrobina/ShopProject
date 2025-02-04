@@ -101,7 +101,7 @@ const Login = () => {
                 helperText={touched.password && errors.password}
                 InputProps={{
                   sx: {
-                    backgroundColor: "#D3D3D3",
+                    backgroundColor: "",
                     width: "277px",
                     height: "56px",
                     borderRadius: "0px",

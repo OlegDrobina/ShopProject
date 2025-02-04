@@ -20,3 +20,23 @@ export function* callGetProductsWorker() {
     console.log(e);
   }
 }
+
+export function* callDeleteProductWorker(action) {
+  try {
+    yield call(api.deleteProduct, action.payload);
+    const { data } = yield call(api.getProducts);
+    yield put(getProduct(data));
+  } catch (e) {
+    console.log(e);
+  }
+}
+
+export function* callEditProductWorker(action) {
+  try {
+    yield call(api.editProduct, action.payload);
+    const { data } = yield call(api.getProducts);
+    yield put(getProduct(data));
+  } catch (e) {
+    console.log(e);
+  }
+}

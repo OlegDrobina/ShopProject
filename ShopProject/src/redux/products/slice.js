@@ -11,7 +11,8 @@ export const product = createSlice({
     getProduct: (state, action) => {
       state.items = action.payload;
     },
+    deleteProduct: () => {},
   },
 });
 
-export const { createProduct, getProduct } = product.actions;
+export const { createProduct, getProduct, deleteProduct } = product.actions;
