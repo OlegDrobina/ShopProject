@@ -20,6 +20,10 @@ const style = {
   bgcolor: "background.paper",
   boxShadow: 24,
   p: 2,
+  display: "flex",
+  flexDirection: "column",
+  alignItems: "center",
+  justifyContent: "space-between",
 };
 
 const ProductModal = (props) => {
@@ -36,13 +40,8 @@ const ProductModal = (props) => {
     operationMode,
   } = props;
   return (
-    <Modal
-      open={open}
-      onClose={onClose}
-      aria-labelledby='modal-modal-title'
-      aria-describedby='modal-modal-description'
-    >
-      <Container id='modal-main-container-id' sx={style}>
+    <Modal open={open} onClose={onClose}>
+      <Container sx={style}>
         <Box
           sx={{
             display: "flex",
@@ -52,7 +51,7 @@ const ProductModal = (props) => {
             height: "43px",
           }}
         >
-          <Typography variant='h6' component='h2'>
+          <Typography variant='h6' component='h2' sx={{ paddingLeft: "15px" }}>
             {`${operationMode} product`}
           </Typography>
           <Button
@@ -96,7 +95,7 @@ const ProductModal = (props) => {
               <Box
                 sx={{
                   backgroundColor: "grey",
-                  width: "413px",
+                  width: "414px",
                   height: "489px",
                   display: "grid",
                   justifyContent: "center",
@@ -288,7 +287,7 @@ const ProductModal = (props) => {
                 <Box
                   sx={{
                     display: "flex",
-                    paddingLeft: "15px",
+                    paddingLeft: "9px",
                   }}
                 >
                   <Button

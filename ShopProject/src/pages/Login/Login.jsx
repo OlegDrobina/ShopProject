@@ -1,7 +1,10 @@
 import React, { useState, useEffect } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { performLogin } from "../../redux/authentication/authSlice";
-import { checkAuthData } from "../../redux/authentication/authSlice";
+import {
+  checkAuthData,
+  closeLoginModal,
+} from "../../redux/authentication/authSlice";
 import LogoImageWithText from "../../components/LogoImageWithText/LogoImageWithText";
 import {
   TextField,
@@ -13,9 +16,13 @@ import {
 } from "@mui/material";
 import { Visibility, VisibilityOff } from "@mui/icons-material";
 import { Formik, Form } from "formik";
+import InvalidLoginModal from "../../components/InvalidLoginModal/InvalidLoginModal";
 
 const Login = () => {
   const [showPassword, setShowPassword] = useState(false);
+  const isInvalidLoginModalOpen = useSelector(
+    (state) => state.auth.isInvalidLoginModalOpen
+  );
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -25,6 +32,10 @@ const Login = () => {
   const checkAuthToken = () => {
     const authToken = localStorage.getItem("authToken");
     dispatch(checkAuthData(authToken));
+  };
+
+  const handleInvalidLoginClose = () => {
+    dispatch(closeLoginModal());
   };
 
   return (
@@ -68,7 +79,6 @@ const Login = () => {
                 fullWidth
                 margin='normal'
                 label='User Name'
-                autoComplete='username'
                 variant='filled'
                 name='username'
                 value={values.username}
@@ -78,7 +88,6 @@ const Login = () => {
                 helperText={touched.username && errors.username}
                 InputProps={{
                   sx: {
-                    backgroundColor: "#D3D3D3",
                     width: "277px",
                     height: "56px",
                     borderRadius: "0px",
@@ -90,7 +99,6 @@ const Login = () => {
                 fullWidth
                 margin='normal'
                 label='Password'
-                autoComplete='current-password'
                 variant='filled'
                 type={showPassword ? "text" : "password"}
                 name='password'
@@ -101,7 +109,6 @@ const Login = () => {
                 helperText={touched.password && errors.password}
                 InputProps={{
                   sx: {
-                    backgroundColor: "",
                     width: "277px",
                     height: "56px",
                     borderRadius: "0px",
@@ -139,6 +146,10 @@ const Login = () => {
           )}
         </Formik>
       </Box>
+      <InvalidLoginModal
+        open={isInvalidLoginModalOpen}
+        onClose={handleInvalidLoginClose}
+      />
     </Container>
   );
 };

@@ -13,28 +13,28 @@ const boxStyle = {
   p: 4,
 };
 
-const DeleteProductModal = (props) => {
-  const { recordId, open, onClose, onConfirm } = props;
+const InvalidLoginModal = (props) => {
+  const { open, onClose } = props;
   return (
     <Modal open={open} onClose={onClose}>
       <Container>
         <Box sx={boxStyle}>
           <Typography
-            id='modal-modal-description'
             sx={{
               mt: 2,
               justifyContent: "center",
               alignItems: "center",
               display: "flex",
-              pt: 4,
+              pt: 1,
               color: "green",
               fontWeight: "bold",
             }}
           >
-            Are you sure you want to delete this product?
+            Invalid username or password specified. Verify that you have entered
+            correct data or contact your system administrator.
           </Typography>
           <Box
-            sx={{ display: "flex", mt: 3, justifyContent: "flex-end", pt: 2 }}
+            sx={{ display: "flex", mt: 3, justifyContent: "flex-end", pt: 0 }}
           >
             <Button
               sx={{
@@ -49,21 +49,7 @@ const DeleteProductModal = (props) => {
               variant='outlined'
               color='primary'
             >
-              Cancel
-            </Button>
-            <Button
-              sx={{
-                width: 111,
-                height: 33,
-                borderRadius: 0,
-                ml: 2,
-                fontWeight: "bold",
-              }}
-              onClick={() => onConfirm(recordId)}
-              variant='contained'
-              color='error'
-            >
-              Delete
+              OK
             </Button>
           </Box>
         </Box>
@@ -72,4 +58,4 @@ const DeleteProductModal = (props) => {
   );
 };
 
-export default DeleteProductModal;
+export default InvalidLoginModal;

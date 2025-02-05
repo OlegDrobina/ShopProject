@@ -3,7 +3,10 @@ import LogoImageWithText from "../../components/LogoImageWithText/LogoImageWithT
 import AddProductButton from "../../components/AddProductButton/AddProductButton";
 import ProductsPreviewButton from "../../components/ProductsPreviewButton/ProductsPreviewButton";
 import ProductsList from "../../components/ProductsList/ProductsList";
+import useAuthSync from "../Login/hooks/useAuthSync";
+
 const Products = () => {
+  useAuthSync();
   return (
     <>
       <Box>

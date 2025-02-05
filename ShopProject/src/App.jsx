@@ -5,6 +5,7 @@ import ErrorBoundary from "./components/ErrorBoundary/ErrorBoundary";
 import { Provider, useSelector } from "react-redux";
 import Products from "./pages/Products/Products";
 import Login from "./pages/Login/Login";
+import Preview from "./pages/Preview/Preview";
 
 const PrivateRoute = ({ children }) => {
   console.log("private route triggered");
@@ -24,6 +25,14 @@ const App = () => {
               element={
                 <PrivateRoute>
                   <Products />
+                </PrivateRoute>
+              }
+            />
+            <Route
+              path='/preview'
+              element={
+                <PrivateRoute>
+                  <Preview />
                 </PrivateRoute>
               }
             />

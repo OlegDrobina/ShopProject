@@ -108,13 +108,13 @@ const ProductsList = () => {
             <Box sx={{ flex: 0.5, display: "flex", justifyContent: "center" }}>
               <IconButton
                 onClick={() => handleEditButtonClick(item)}
-                color='primary'
+                color='black'
               >
                 <EditIcon />
               </IconButton>
               <IconButton
                 onClick={() => handleDeleteButtonClick(item.id)}
-                color='error'
+                color='black'
               >
                 <DeleteIcon />
               </IconButton>

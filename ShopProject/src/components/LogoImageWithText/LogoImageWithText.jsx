@@ -15,7 +15,14 @@ const LogoImageWithText = (props) => {
         paddingBottom: { paddingBottom },
       }}
     >
-      <img src={rozetkaLogo} style={{ width: "50px", height: "40px" }} />
+      <Box
+        component='img'
+        sx={{
+          width: "50px",
+          height: "40px",
+        }}
+        src={rozetkaLogo}
+      />
       <Typography variant='h4' sx={{ fontWeight: "bold", color: { color } }}>
         ROZETKA
       </Typography>
