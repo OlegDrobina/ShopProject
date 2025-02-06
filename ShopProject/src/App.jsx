@@ -8,7 +8,6 @@ import Login from "./pages/Login/Login";
 import Preview from "./pages/Preview/Preview";
 
 const PrivateRoute = ({ children }) => {
-  console.log("private route triggered");
   const isAuthTokenValid = useSelector((state) => state.auth.isAuthTokenValid);
   return isAuthTokenValid ? children : <Navigate to='/' />;
 };
